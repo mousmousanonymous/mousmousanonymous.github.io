@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Demo page</title>
+
+    <style>
+      ul.pub {line-height: 20px;}
+      ul.pub li {margin-bottom: 10px;}
+      ol.multi-column {float: left; width: 100%; line-height: 10px;}
+      ol.multi-column li {float: left; width: 50%; margin-bottom: 10px;}
+    </style>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" }},
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { matchFontHeight: false },
+        displayAlign: "left",
+        displayIndent: "2em"
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+      <header class="inner">
+        <h1 id="project_title">Demo Page</h1>
+      </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        This is the accompanying web page for the following paper:<br>
+
+        <h2>SCALE- AND RHYTHM-AWARE MUSICAL NOTE ESTIMATION FOR
+          VOCAL F0 TRAJECTORIES BASED ON A SEMI-TATUM-SYNCHRONOUS
+          HIERARCHICAL HIDDEN SEMI-MARKOV MODEL</h2>
+
+        <h3>Abstract</h3>
+        <p>
+          This paper presents a statistical method
+          that estimates a musically-natural sequence of musical notes
+          from a vocal F0 trajectory.
+          Since the onset times and F0s of sung notes are considerably deviated
+          from the tatums and pitches indicated in a musical score,
+          a score model is crucial for improving time-frequency quantization of F0s.
+          We therefore propose a hierarchical hidden semi-Markov model (HSMM)
+          that combines a score model representing the rhythms and pitches of musical notes under musical scales
+          with an F0 model representing the time-frequency deviations of F0s from the score.
+          In the score model,
+          musical scales are generated stochastically and
+          note pitches are then generated according to the scales.
+          To make rhythms,
+          note onsets follow a Markov process defined on the tatum grid.
+          In the F0 model,
+          onset time deviations, smooth inter-note F0 transitions, and F0 fluctuations
+          are added to the score stochastically.
+          Given an F0 trajectory,
+          we estimate the most likely sequence of musical notes
+          while giving more importance on the score model than the F0 model.
+          Experimental results showed that
+          the proposed method outperformed an HMM-based method having no models of scales and rhythms.
+        </p>
+
+        <p>
+          You can get the latest version of our paper from here.
+          <a href="./doc/ismir2017.pdf" target="_blank">[PDF]</a>
+        </p>
+
+        <h3>Errata</h3>
+        <p>
+          Corrections from the submitted version are shown below.
+        </p>
+        <!-- <p>  -->
+        <!-- </p> -->
+        <!-- Figure 4 :                                                                -->
+        <!-- (Incorrect)$k_{j-1}, k_{j}, s_{j-1}, s_{j}, h_{n-l_j}, h_{n} \rightarrow$ -->
+        <!-- (Correct)$p_{j-1}, p_{j}, d_{j-1}, d_{j}, u_{n-l_j}, u_{n}$               -->
+        <table>
+        <tr>
+          <td>Page</td>
+          <td>Location</td>
+          <td>Incorrect</td>
+          <td>Correct</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Figure 4</td>
+          <td>$k_{j-1}, k_{j}, s_{j-1}, s_{j}, h_{n-l_j}, h_{n}$</td>
+          <td>$p_{j-1}, p_{j}, d_{j-1}, d_{j}, u_{n-l_j}, u_{n}$</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Figure 1</td>
+          <td>Time deviation</td>
+          <td>Temporal deviation</td>
+        </tr>
+        </table>
+
+        <p>
+        </p>
+        <!-- <h3>Correction the</h3> -->
+        <!-- <ul> -->
+          <!--   <li>Anonymous<br>           -->
+            <!--   Submitted to ISMIR 2017</a> -->
+          <!-- </ul>                         -->
+        <h2>Demo</h2>
+        <!-- In preparation. -->
+        <p>
+          Example results of musical notes
+          estimated from a ground-truth F0 trajectories
+          by the proposed method and its variant without scale and rhythm constraints
+          are shown.
+          The input F0 trajectories and tatum times
+          are obtained from the annotation data [1,2].
+          <!-- Although the proposed method does not estimate rest, -->
+          <!-- the                                                  -->
+          <!-- we used the                                          -->
+        </p>
+
+        <h3>Example 1 (RWC-MDB-P-2001 No. 7)</h3>
+        <h4>Ground truth</h4>
+        <audio src="./snd/noteseq_7_cut.wav" controls></audio>
+        <h4>The proposed method</h4>
+        <audio src="./snd/proposed_7_cut.wav" controls></audio>
+        <h4>The method without scale and rhythm constraints</h4>
+        <audio src="./snd/without_7_cut.wav" controls></audio>
+
+        <h3>Example 2 (RWC-MDB-P-2001 No. 18)</h3>
+        <h4>Ground truth</h4>
+        <audio src="./snd/noteseq_18_cut.wav" controls></audio>
+        <h4>The proposed method</h4>
+        <audio src="./snd/proposed_18_cut.wav" controls></audio>
+        <h4>The method without scale and rhythm constraints</h4>
+        <audio src="./snd/without_18_cut.wav" controls></audio>
+
+        <h3>Example 3 (RWC-MDB-P-2001 No. 51)</h3>
+        <h4>Ground truth</h4>
+        <audio src="./snd/noteseq_51_cut.wav" controls></audio>
+        <h4>The proposed method</h4>
+        <audio src="./snd/proposed_51_cut.wav" controls></audio>
+        <h4>The method without scale and rhythm constraints</h4>
+        <audio src="./snd/without_51_cut.wav" controls></audio>
+
+        <h2>Reference</h2>
+        [1] M. Goto. Aist annotation for the RWC music database.
+        In The 7th International Conference on Music Information
+        Retrieval (ISMIR 2006), pages 359–360, 2006. </br>
+        [2] M. Goto, H. Hashiguchi, T. Nishimura, and R. Oka.
+        RWC music database: Popular, classical and jazz music
+        databases. In The 3rd International Conference on
+        Music Information Retrieval (ISMIR 2002), pages 287–
+        288, 2002.
+      </section>
+    </div>
+    <!-- FOOTER  -->
+
+  </body>
+</html>
