@@ -43,70 +43,44 @@
       <section id="main_content" class="inner">
         This is the accompanying web page for the following paper:<br>
 
-        <h2>SCALE- AND RHYTHM-AWARE MUSICAL NOTE ESTIMATION FOR
-          VOCAL F0 TRAJECTORIES BASED ON A SEMI-TATUM-SYNCHRONOUS
-          HIERARCHICAL HIDDEN SEMI-MARKOV MODEL</h2>
+        <h2>Cover Score Generation from Music Audio Signals
+	  Based on a Factorial HSMM
+	</h2>
 
         <h3>Abstract</h3>
         <p>
-          This paper presents a statistical method
-          that estimates a musically-natural sequence of musical notes
-          from a vocal F0 trajectory.
-          Since the onset times and F0s of sung notes are considerably deviated
-          from the tatums and pitches indicated in a musical score,
-          a score model is crucial for improving time-frequency quantization of F0s.
-          We therefore propose a hierarchical hidden semi-Markov model (HSMM)
-          that combines a score model representing the rhythms and pitches of musical notes under musical scales
-          with an F0 model representing the time-frequency deviations of F0s from the score.
-          In the score model,
-          musical scales are generated stochastically and
-          note pitches are then generated according to the scales.
-          To make rhythms,
-          note onsets follow a Markov process defined on the tatum grid.
-          In the F0 model,
-          onset time deviations, smooth inter-note F0 transitions, and F0 fluctuations
-          are added to the score stochastically.
-          Given an F0 trajectory,
-          we estimate the most likely sequence of musical notes
-          while giving more importance on the score model than the F0 model.
-          Experimental results showed that
-          the proposed method outperformed an HMM-based method having no models of scales and rhythms.
+This paper describes cover score generation
+ from polyphonic audio signals of popular music,
+ a new intermediate research topic
+ between automatic music transcription and music arrangement.
+A cover score is a musical score
+ that can be played by a typical band
+ performing vocal, guitar, and drum parts.
+Since many studies have already addressed the
+ automatic transcription of vocal and drum parts,
+ in this paper we aim to estimate musical scores of guitar parts
+ (lead, bass, and rhythm guitars)
+ that <i> approximate </i> the original accompaniment parts
+ played by various kinds of musical instruments.
+To do this,
+ we take a Bayesian approach based on
+ a factorial hidden semi-Markov model (FHSMM)  with three latent chains.
+One chain represents a sequence of chords for a rhythm guitar,
+ and the other two
+ represent monophonic sequences of musical notes for lead and bass guitars.
+A music spectrogram is assumed to be the sum of three low-rank spectrograms
+ generated from those chains.
+Given a music spectrogram,
+ all the parameters and latent chains can be estimated jointly
+ via Gibbs sampling.
+The experimental results showed the effectiveness
+ of joint transcription of lead, bass, and rhythm guitar parts.
         </p>
 
         <p>
           You can get the latest version of our paper from here.
           <a href="./doc/ismir2017.pdf" target="_blank">[PDF]</a>
         </p>
-
-        <h3>Errata</h3>
-        <p>
-          Corrections from the submitted version are shown below.
-        </p>
-        <!-- <p>  -->
-        <!-- </p> -->
-        <!-- Figure 4 :                                                                -->
-        <!-- (Incorrect)$k_{j-1}, k_{j}, s_{j-1}, s_{j}, h_{n-l_j}, h_{n} \rightarrow$ -->
-        <!-- (Correct)$p_{j-1}, p_{j}, d_{j-1}, d_{j}, u_{n-l_j}, u_{n}$               -->
-        <table>
-        <tr>
-          <td>Page</td>
-          <td>Location</td>
-          <td>Incorrect</td>
-          <td>Correct</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Figure 4</td>
-          <td>$k_{j-1}, k_{j}, s_{j-1}, s_{j}, h_{n-l_j}, h_{n}$</td>
-          <td>$p_{j-1}, p_{j}, d_{j-1}, d_{j}, u_{n-l_j}, u_{n}$</td>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>Figure 1</td>
-          <td>Time deviation</td>
-          <td>Temporal deviation</td>
-        </tr>
-        </table>
 
         <p>
         </p>
@@ -129,7 +103,7 @@
           <!-- we used the                                          -->
         </p>
 
-        <h3>Example 1 (RWC-MDB-P-2001 No. 7)</h3>
+        <h3>Example 1 (RWC-MDB-P-2001 No. 51)</h3>
         <h4>Ground truth</h4>
         <audio src="./snd/noteseq_7_cut.wav" controls></audio>
         <h4>The proposed method</h4>
@@ -137,7 +111,7 @@
         <h4>The method without scale and rhythm constraints</h4>
         <audio src="./snd/without_7_cut.wav" controls></audio>
 
-        <h3>Example 2 (RWC-MDB-P-2001 No. 18)</h3>
+        <h3>Example 2 (RWC-MDB-P-2001 No. 70)</h3>
         <h4>Ground truth</h4>
         <audio src="./snd/noteseq_18_cut.wav" controls></audio>
         <h4>The proposed method</h4>
@@ -145,7 +119,7 @@
         <h4>The method without scale and rhythm constraints</h4>
         <audio src="./snd/without_18_cut.wav" controls></audio>
 
-        <h3>Example 3 (RWC-MDB-P-2001 No. 51)</h3>
+        <h3>Example 3 (RWC-MDB-P-2001 No. 12)</h3>
         <h4>Ground truth</h4>
         <audio src="./snd/noteseq_51_cut.wav" controls></audio>
         <h4>The proposed method</h4>
