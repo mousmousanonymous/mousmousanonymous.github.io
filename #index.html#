@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Demo page</title>
+
+    <style>
+      ul.pub {line-height: 20px;}
+      ul.pub li {margin-bottom: 10px;}
+      ol.multi-column {float: left; width: 100%; line-height: 10px;}
+      ol.multi-column li {float: left; width: 50%; margin-bottom: 10px;}
+    </style>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { equationNumbers: { autoNumber: "AMS" }},
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+          processEscapes: true
+        },
+        "HTML-CSS": { matchFontHeight: false },
+        displayAlign: "left",
+        displayIndent: "2em"
+      });
+    </script>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+      <header class="inner">
+        <h1 id="project_title">Demo Page</h1>
+      </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        This is the accompanying web page for the following paper:<br>
+
+        <h2>Cover Score Generation from Music Audio Signals
+	  Based on a Factorial HSMM
+	</h2>
+
+        <h3>Abstract</h3>
+        <p>
+This paper describes cover score generation
+ from polyphonic audio signals of popular music,
+ a new intermediate research topic
+ between automatic music transcription and music arrangement.
+A cover score is a musical score
+ that can be played by a typical band
+ performing vocal, guitar, and drum parts.
+Since many studies have already addressed the
+ automatic transcription of vocal and drum parts,
+ in this paper we aim to estimate musical scores of guitar parts
+ (lead, bass, and rhythm guitars)
+ that <i> approximate </i> the original accompaniment parts
+ played by various kinds of musical instruments.
+To do this,
+ we take a Bayesian approach based on
+ a factorial hidden semi-Markov model (FHSMM)  with three latent chains.
+One chain represents a sequence of chords for a rhythm guitar,
+ and the other two
+ represent monophonic sequences of musical notes for lead and bass guitars.
+A music spectrogram is assumed to be the sum of three low-rank spectrograms
+ generated from those chains.
+Given a music spectrogram,
+ all the parameters and latent chains can be estimated jointly
+ via Gibbs sampling.
+The experimental results showed the effectiveness
+ of joint transcription of lead, bass, and rhythm guitar parts.
+        </p>
+
+        <p>
+        </p>
+        <!-- <h3>Correction the</h3> -->
+        <!-- <ul> -->
+          <!--   <li>Anonymous<br>           -->
+            <!--   Submitted to ISMIR 2017</a> -->
+          <!-- </ul>                         -->
+        <h2>Demo</h2>
+        <!-- In preparation. -->
+        <p>
+          Example results of musical notes
+          estimated from a ground-truth F0 trajectories
+          by the proposed method and its variant without scale and rhythm constraints
+          are shown.
+          The input F0 trajectories and tatum times
+          are obtained from the annotation data [1].
+          <!-- Although the proposed method does not estimate rest, -->
+          <!-- the                                                  -->
+          <!-- we used the                                          -->
+        </p>
+
+        <h3>Example 1 (RWC-MDB-P-2001 No. 12)</h3>
+        <h4>Ground truth</h4>
+        <audio src="./snd/RM-P012.mp3" controls></audio>
+        <h4>The proposed method</h4>
+        <audio src="./wav/012fromAudioVC.wav" controls></audio>
+
+        <h3>Example 2 (RWC-MDB-P-2001 No. 51)</h3>
+        <h4>Ground truth</h4>
+        <audio src="./snd/RM-P051.mp3" controls></audio>
+        <h4>The proposed method</h4>
+        <audio src="./wav/051fromAudioVC.wav" controls></audio>
+
+        <h3>Example 3 (RWC-MDB-P-2001 No. 70)</h3>
+        <h4>Ground truth</h4>
+        <audio src="./snd/RM-P070.mp3" controls></audio>
+        <h4>The proposed method</h4>
+        <audio src="./wav/270fromAudio.wav" controls></audio>
+
+        <h2>Reference</h2>
+        [1] M. Goto, H. Hashiguchi, T. Nishimura, and R. Oka.
+        RWC music database: Popular, classical and jazz music
+        databases. In The 3rd International Conference on
+        Music Information Retrieval (ISMIR 2002), pages 287–
+        288, 2002.
+      </section>
+    </div>
+    <!-- FOOTER  -->
+
+  </body>
+</html>
