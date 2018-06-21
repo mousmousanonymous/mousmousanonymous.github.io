@@ -51,31 +51,31 @@
         <p>
 This paper describes cover score generation
  from polyphonic audio signals of popular music,
- a new intermediate research topic
- between automatic music transcription and music arrangement.
-A cover score is a musical score
- that can be played by a typical band
- performing vocal, guitar, and drum parts.
-Since many studies have already addressed the
+ a variant of automatic music transcription 
+ that aims to estimate a musical score (cover score) 
+ that approximates an original song
+ and that can be played by a typical band
+ consisting of vocal, guitar, and drum parts.
+Since many studies have dealt with
  automatic transcription of vocal and drum parts,
  in this paper we aim to estimate musical scores of guitar parts
  (lead, bass, and rhythm guitars)
- that <i> approximate </i> the original accompaniment parts
+ that approximate the original accompaniment parts
  played by various kinds of musical instruments.
 To do this,
  we take a Bayesian approach based on
  a factorial hidden semi-Markov model (FHSMM)  with three latent chains.
-One chain represents a sequence of chords for a rhythm guitar,
+One chain represents a sequence of chords for the rhythm guitar,
  and the other two
- represent monophonic sequences of musical notes for lead and bass guitars.
-A music spectrogram is assumed to be the sum of three low-rank spectrograms
+ represent monophonic sequences of musical notes for the lead and bass guitars.
+An input music spectrogram is approximated as the sum of three low-rank spectrograms
  generated from those chains.
-Given a music spectrogram,
+Given the input,
  all the parameters and latent chains can be estimated jointly
  via Gibbs sampling.
 The experimental results showed the effectiveness
  of joint transcription of lead, bass, and rhythm guitar parts.
-        </p>
+	</p>
 
         <p>
         </p>
